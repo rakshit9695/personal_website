@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 const Research = () => {
   const entries = [
     {
-      title: 'Analog LIF Neuron (PD-SOI)',
+      title: 'Analog LIF Neuron (DG-JFET)',
       description:
         'Single-transistor Leaky Integrate-and-Fire neuron implemented in Partially Depleted SOI (PD-SOI), including device-level modeling and circuit validation.',
       technologies: ['PD-SOI', 'Sentaurus TCAD', 'Analog Circuits', 'Neuromorphic'],
