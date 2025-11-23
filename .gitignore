@@ -22,3 +22,46 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Confidential / secret files
+# Environment files
+.env
+.env.*
+.env.local
+.env.*.local
+
+# Secrets and credentials
+.secrets/
+.secret
+secrets.yml
+credentials.yml
+credentials.json
+.netrc
+
+# SSH keys and PKI
+.ssh/
+*.pem
+*.key
+id_rsa
+id_dsa
+id_ecdsa
+*.p12
+*.jks
+
+# Cloud provider credentials
+.aws/
+.azure/
+.gcloud/
+
+# Terraform state and var files
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+*.tfvars.json
+
+# Build system secrets
+*.publishsettings
+
+# Misc secret stores
+.vault/
+secrets.json
