@@ -5,9 +5,34 @@ import { Briefcase } from 'lucide-react';
 const WorkExperience = () => {
   const experiences = [
     {
+      role: 'Energy Systems Analyst',
+      company: 'Lighthouse Energy Ltd. — Canada (Remote)',
+      period: 'July 2025 – Present',
+      description:
+        'Design, develop, and deploy cloud-scale digital twin software to model hybrid power + compute systems for high-density computational facilities. Work spans digital twin engineering, ML-driven optimization, and system-level energy modeling.',
+      achievements: [
+        'Built a commercial-grade digital twin framework modeling renewables, batteries, generators, and compute workloads',
+        'Simulated power flow, thermal loading, and operational constraints in real time to enable scenario-based planning',
+        'Developed ML/DL pipelines for predictive performance modeling, workload-aware orchestration, and energy cost optimization',
+        'Delivered decision-support dashboards for facility sizing, efficiency benchmarking, and simulation-driven validation'
+      ]
+    },
+    {
+      role: 'Summer Intern — Energy Systems Engineering',
+      company: 'Lighthouse Energy Ltd.',
+      period: 'April 2025 – June 2025',
+      description:
+        'Designed and simulated hybrid renewable-energy architectures for HPC/ASIC data centers, combining power engineering, Python-based simulation, and operational optimization.',
+      achievements: [
+        'Modeled solar, wind, battery, and grid-linked systems for ASIC-HPC facilities and analyzed reliability and LCOE impacts',
+        'Implemented real-time optimization algorithms for intelligent power allocation under dynamic pricing and workload surges',
+        'Built a Streamlit dashboard for power flow visualization, battery SOC tracking, and runtime scenario analysis'
+      ]
+    },
+    {
       role: 'Senior Software Engineer',
       company: 'Tech Innovations Inc.',
-      period: '2023 - Present',
+      period: '2023 - 2024',
       description: 'Leading development of cloud-native applications and microservices architecture. Mentoring junior developers and driving technical excellence across teams.',
       achievements: [
         'Architected and deployed scalable system handling 10M+ requests daily',
@@ -24,17 +49,6 @@ const WorkExperience = () => {
         'Developed real-time collaboration features used by 50K+ users',
         'Improved application performance by 60% through code optimization',
         'Implemented comprehensive testing suite increasing code coverage to 85%'
-      ]
-    },
-    {
-      role: 'Software Engineer',
-      company: 'StartupXYZ',
-      period: '2019 - 2021',
-      description: 'Early-stage startup building B2B SaaS platform. Wore multiple hats from frontend to backend to DevOps.',
-      achievements: [
-        'Built MVP from scratch that secured $2M in seed funding',
-        'Established CI/CD pipeline reducing deployment time by 75%',
-        'Implemented authentication and authorization system for multi-tenant platform'
       ]
     }
   ];
