@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Index = () => {
   const projects = [{
     title: 'Project Alpha',
-    description: 'A minimalist approach to modern web design',
+    description: 'A clean approach to modern web design',
     year: '2024',
     link: '/projects'
   }, {
