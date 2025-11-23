@@ -1,12 +1,9 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import { ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Projects = () => {
-  const [activeTab, setActiveTab] = useState<'technical' | 'non-technical'>('technical');
-
   const technicalProjects = [
     {
       title: 'LLM Inference FPGA Accelerator',
@@ -76,31 +73,7 @@ const Projects = () => {
     }
   ];
 
-  const nonTechnicalProjects = [
-    {
-      title: 'Tech Community Mentorship',
-      description: 'Mentoring program connecting experienced developers with beginners, helped 50+ mentees',
-      technologies: ['Leadership', 'Communication', 'Teaching'],
-      year: '2024',
-      links: { github: undefined as string | undefined, demo: undefined as string | undefined }
-    },
-    {
-      title: 'Open Source Documentation',
-      description: 'Comprehensive documentation project improving accessibility for a major OSS framework',
-      technologies: ['Technical Writing', 'Information Architecture'],
-      year: '2024',
-      links: { github: undefined as string | undefined, demo: '#' as string | undefined }
-    },
-    {
-      title: 'Developer Workshop Series',
-      description: 'Monthly workshops on modern development practices, reaching 200+ developers',
-      technologies: ['Public Speaking', 'Curriculum Design'],
-      year: '2023',
-      links: { github: undefined as string | undefined, demo: undefined as string | undefined }
-    }
-  ];
-
-  const projects = activeTab === 'technical' ? technicalProjects : nonTechnicalProjects;
+  const projects = technicalProjects;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -122,41 +95,7 @@ const Projects = () => {
             </h1>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex gap-8 mb-16 border-b border-border"
-          >
-            <button
-              onClick={() => setActiveTab('technical')}
-              className={`pb-4 text-lg font-light transition-colors relative ${
-                activeTab === 'technical' ? 'text-foreground' : 'text-muted-foreground'
-              }`}
-            >
-              Technical
-              {activeTab === 'technical' && (
-                <motion.div
-                  layoutId="activeTab"
-                  className="absolute bottom-0 left-0 right-0 h-px bg-foreground"
-                />
-              )}
-            </button>
-            <button
-              onClick={() => setActiveTab('non-technical')}
-              className={`pb-4 text-lg font-light transition-colors relative ${
-                activeTab === 'non-technical' ? 'text-foreground' : 'text-muted-foreground'
-              }`}
-            >
-              Non-Technical
-              {activeTab === 'non-technical' && (
-                <motion.div
-                  layoutId="activeTab"
-                  className="absolute bottom-0 left-0 right-0 h-px bg-foreground"
-                />
-              )}
-            </button>
-          </motion.div>
+          {/* Technical projects list */}
 
           <div className="space-y-12">
             {projects.map((project, index) => (
