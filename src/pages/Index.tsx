@@ -80,7 +80,7 @@ const Index = () => {
             duration: 0.8,
             delay: 0.4
           }}>
-              Electronics & Instrumentation Engineer specializing in RTL design, energy systems, and machine learning.
+              Electronics & Instrumentation Engineer specializing in Industrial, Energy and Semiconductor Engineering.
             </motion.p>
 
             <motion.div className="mt-12 flex gap-4" initial={{
