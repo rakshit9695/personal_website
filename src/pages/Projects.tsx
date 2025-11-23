@@ -20,7 +20,7 @@ const Projects = () => {
         'Planned expansions: floating-point support, DMA, multi-core execution'
       ],
       year: '2024',
-      links: { github: 'https://github.com/rakshit9695/gemm-llm-fpga-accelerator', demo: undefined as string | undefined }
+      links: { github: 'https://github.com/rakshit9695/Hardware-Accelerator', demo: undefined as string | undefined }
     },
     {
       title: 'Cadence PLL Implementation',
@@ -46,7 +46,7 @@ const Projects = () => {
         'Waveform-driven validation and functional test coverage'
       ],
       year: '2023',
-      links: { github: 'https://github.com/rakshit9695/riscv-verilog-implementation', demo: undefined as string | undefined }
+      links: { github: 'https://github.com/rakshit9695/RISCV_Processor', demo: undefined as string | undefined }
     },
     {
       title: 'Synchronous & Asynchronous FIFO Architectures',
@@ -59,7 +59,7 @@ const Projects = () => {
         'Formal verification with assertions and randomized stimulus'
       ],
       year: '2022',
-      links: { github: 'https://github.com/rakshit9695/fifo-architectures', demo: undefined as string | undefined }
+      links: { github: 'https://github.com/rakshit9695/FIFO', demo: undefined as string | undefined }
     },
     {
       title: 'Digital Frequency Meter',
@@ -72,7 +72,7 @@ const Projects = () => {
         'Designed for educational and laboratory measurement use'
       ],
       year: '2021',
-      links: { github: 'https://github.com/rakshit9695/digital-frequency-meter', demo: undefined as string | undefined }
+      links: { github: 'https://github.com/rakshit9695/Frequency-Meter', demo: undefined as string | undefined }
     }
   ];
 
@@ -202,16 +202,30 @@ const Projects = () => {
                 {(project.links.github || project.links.demo) && (
                   <div className="flex gap-4">
                     {project.links.github && (
-                      <Button variant="ghost" size="sm" className="px-0 hover:bg-transparent">
-                        <Github className="w-4 h-4 mr-2" />
-                        View Code
-                      </Button>
+                      <a
+                        href={project.links.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block"
+                      >
+                        <Button variant="ghost" size="sm" className="px-0 hover:bg-transparent">
+                          <Github className="w-4 h-4 mr-2" />
+                          View Code
+                        </Button>
+                      </a>
                     )}
                     {project.links.demo && (
-                      <Button variant="ghost" size="sm" className="px-0 hover:bg-transparent">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
-                      </Button>
+                      <a
+                        href={project.links.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block"
+                      >
+                        <Button variant="ghost" size="sm" className="px-0 hover:bg-transparent">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live Demo
+                        </Button>
+                      </a>
                     )}
                   </div>
                 )}
