@@ -28,28 +28,6 @@ const WorkExperience = () => {
         'Implemented real-time optimization algorithms for intelligent power allocation under dynamic pricing and workload surges',
         'Built a Streamlit dashboard for power flow visualization, battery SOC tracking, and runtime scenario analysis'
       ]
-    },
-    {
-      role: 'Senior Software Engineer',
-      company: 'Tech Innovations Inc.',
-      period: '2023 - 2024',
-      description: 'Leading development of cloud-native applications and microservices architecture. Mentoring junior developers and driving technical excellence across teams.',
-      achievements: [
-        'Architected and deployed scalable system handling 10M+ requests daily',
-        'Reduced infrastructure costs by 40% through optimization',
-        'Led team of 5 engineers in delivering critical features on time'
-      ]
-    },
-    {
-      role: 'Full Stack Developer',
-      company: 'Digital Solutions Corp',
-      period: '2021 - 2023',
-      description: 'Built responsive web applications using React and Node.js. Collaborated with design and product teams to deliver user-centric solutions.',
-      achievements: [
-        'Developed real-time collaboration features used by 50K+ users',
-        'Improved application performance by 60% through code optimization',
-        'Implemented comprehensive testing suite increasing code coverage to 85%'
-      ]
     }
   ];
 
@@ -121,27 +99,10 @@ const WorkExperience = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-16 pt-12 border-t border-border"
           >
-            <h2 className="text-2xl font-light mb-8">Skills & Technologies</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div>
-                <h3 className="text-sm text-foreground mb-4 tracking-wide uppercase">Frontend</h3>
-                <p className="text-muted-foreground font-light leading-relaxed">
-                  React, TypeScript, Next.js, Tailwind CSS, Vue.js
-                </p>
-              </div>
-              <div>
-                <h3 className="text-sm text-foreground mb-4 tracking-wide uppercase">Backend</h3>
-                <p className="text-muted-foreground font-light leading-relaxed">
-                  Node.js, Python, Go, PostgreSQL, MongoDB, Redis
-                </p>
-              </div>
-              <div>
-                <h3 className="text-sm text-foreground mb-4 tracking-wide uppercase">DevOps</h3>
-                <p className="text-muted-foreground font-light leading-relaxed">
-                  Docker, Kubernetes, AWS, CI/CD, Terraform
-                </p>
-              </div>
-            </div>
+            <h2 className="text-2xl font-light mb-8">Skills and Technologies</h2>
+            <p className="text-muted-foreground font-light leading-relaxed">
+              Python, C Programming, Verilog, Physical Design Tools (Open Source - Yosys, OpenSTA, OpenROAD), Cadence Virtuoso, Sentaurus TCAD
+            </p>
           </motion.div>
         </div>
       </main>
