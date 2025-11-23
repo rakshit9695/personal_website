@@ -9,32 +9,70 @@ const Projects = () => {
 
   const technicalProjects = [
     {
-      title: 'Distributed Task Queue System',
-      description: 'A high-performance, scalable task queue built with Go and Redis for handling millions of async jobs',
-      technologies: ['Go', 'Redis', 'Docker', 'Kubernetes'],
+      title: 'LLM Inference FPGA Accelerator',
+      description: 'High-throughput FPGA inference engine focused on GEMM for LLM workloads — 16-bit integer ops with 32-bit accumulation and cycle-level benchmarking.',
+      technologies: ['Verilog', 'C++', 'AXI-Lite', 'Verilator'],
+      highlights: [
+        'Modular RTL (GEMM engine, AXI‑Lite interface, memory controller)',
+        'C++ testbench for matrix generation, waveform visualization, and performance logging',
+        'CSV output with GOPS metrics and cycle-accurate trace analysis',
+        'Pipeline-friendly PE architecture to maximize MAC utilization',
+        'Planned expansions: floating-point support, DMA, multi-core execution'
+      ],
       year: '2024',
-      links: { github: '#' as string | undefined, demo: '#' as string | undefined }
+      links: { github: 'https://github.com/rakshit9695/gemm-llm-fpga-accelerator', demo: undefined as string | undefined }
     },
     {
-      title: 'Real-time Analytics Dashboard',
-      description: 'Interactive data visualization platform processing streaming data with sub-second latency',
-      technologies: ['React', 'TypeScript', 'WebSockets', 'D3.js'],
-      year: '2024',
-      links: { github: '#' as string | undefined, demo: '#' as string | undefined }
-    },
-    {
-      title: 'ML Model Serving API',
-      description: 'RESTful API for serving machine learning models with automatic scaling and monitoring',
-      technologies: ['Python', 'FastAPI', 'PyTorch', 'AWS'],
+      title: 'Cadence PLL Implementation',
+      description: 'Analog mixed-signal PLL implemented at transistor level (PFD, charge pump, VCO, loop filter, divider) and validated in Cadence Virtuoso.',
+      technologies: ['Cadence Virtuoso', 'SPICE', 'Layout & Schematic Capture'],
+      highlights: [
+        'Transistor-level design of PFD, charge pump, VCO, loop filter, and divider',
+        'CMOS layout and schematic capture with LVS/DRC-aware flow',
+        'Characterized locking behavior, jitter, and frequency control in simulation',
+        'Practical readiness for high-speed SerDes and clocking integration'
+      ],
       year: '2023',
-      links: { github: '#' as string | undefined, demo: undefined as string | undefined }
+      links: { github: undefined as string | undefined, demo: undefined as string | undefined }
     },
     {
-      title: 'Microservices Architecture',
-      description: 'Complete microservices ecosystem with service discovery, API gateway, and distributed tracing',
-      technologies: ['Node.js', 'Kafka', 'MongoDB', 'Consul'],
+      title: 'MIPS RISC-V Processor',
+      description: '32-bit RISC-V compatible CPU with a four-stage pipeline (IF, ID, EX, WB), hazard detection, and forwarding — validated with self-checking testbenches.',
+      technologies: ['Verilog', 'Custom Testbenches'],
+      highlights: [
+        'Four-stage pipeline with forwarding and hazard control',
+        'Register file, ALU, control unit, and pipeline register modules',
+        'Self-checking testbenches executing real RISC-V assembly',
+        'Waveform-driven validation and functional test coverage'
+      ],
       year: '2023',
-      links: { github: '#' as string | undefined, demo: undefined as string | undefined }
+      links: { github: 'https://github.com/rakshit9695/riscv-verilog-implementation', demo: undefined as string | undefined }
+    },
+    {
+      title: 'Synchronous & Asynchronous FIFO Architectures',
+      description: 'Dual FIFO designs addressing clock-domain crossing, metastability, and verification through formal assertions and randomized testbenches.',
+      technologies: ['Verilog', 'SystemVerilog', 'Formal Assertions'],
+      highlights: [
+        'Parameterized FIFO depth with configurable datapath width',
+        'Asynchronous CDC using Gray-code pointers and double-flop synchronizers',
+        'Overflow/underflow detection and robust status signaling',
+        'Formal verification with assertions and randomized stimulus'
+      ],
+      year: '2022',
+      links: { github: 'https://github.com/rakshit9695/fifo-architectures', demo: undefined as string | undefined }
+    },
+    {
+      title: 'Digital Frequency Meter',
+      description: 'Compact instrumentation device using a 100 Hz time base to measure 0.00–99.99 Hz, implemented with digital logic and KiCad schematics/PCB.',
+      technologies: ['Digital Logic', 'KiCad'],
+      highlights: [
+        '100 Hz time-base derived from a crystal for stable gating',
+        'Counters and logic to display 0.00–99.99 Hz on dual 7-segment displays',
+        'KiCad schematic and PCB files for easy fabrication',
+        'Designed for educational and laboratory measurement use'
+      ],
+      year: '2021',
+      links: { github: 'https://github.com/rakshit9695/digital-frequency-meter', demo: undefined as string | undefined }
     }
   ];
 
@@ -150,6 +188,16 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
+
+                {(project as any).highlights && (
+                  <ul className="list-disc ml-6 mb-4 text-muted-foreground space-y-1">
+                    {(project as any).highlights.map((h: string) => (
+                      <li key={h} className="text-sm leading-snug">
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
                 {(project.links.github || project.links.demo) && (
                   <div className="flex gap-4">
