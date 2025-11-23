@@ -70,7 +70,6 @@ const Index = () => {
    
 
    <br />
-              ultimate sophistication
             </motion.h1>
             
             <motion.p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed font-light" initial={{
