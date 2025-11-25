@@ -17,6 +17,11 @@ const WhoAmI = () => {
     }
   };
   const skills = [{
+    icon: <Lightbulb className="w-6 h-6" />,
+    title: 'Digital Twin Modelling',
+    description:
+      "Expert in designing and implementing digital twins for electromechanical systems, with specialization in energy, industrial, and semiconductor system‑level modeling. Combine physics‑based simulation and data‑driven models to enable performance analysis, predictive maintenance, and operational optimization at scale.",
+  }, {
     icon: <Code className="w-6 h-6" />,
     title: 'RTL Design & Verification',
     description: 'Expert in Verilog/SystemVerilog and UVM methodologies for robust digital design and verification workflows'
