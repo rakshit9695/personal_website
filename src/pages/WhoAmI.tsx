@@ -33,11 +33,8 @@ const WhoAmI = () => {
     icon: <Lightbulb className="w-6 h-6" />,
     title: 'RISC-V & Digital Architecture',
     description: 'Deep understanding of RISC-V ISA, processor microarchitecture, and custom digital SoC design principles'
-  }, {
-    icon: <Users className="w-6 h-6" />,
-    title: 'Energy Systems Modeling & ML',
-    description: 'Building digital twins and optimization frameworks using machine learning for hybrid power system analysis'
-  }, {
+  },
+  {
     icon: <Code className="w-6 h-6" />,
     title: 'Semiconductor Device Physics',
     description: 'Advanced knowledge in device modeling, TCAD simulation, and Spectre for circuit-level performance analysis'
