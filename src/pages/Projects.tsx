@@ -75,9 +75,6 @@ const Projects = () => {
   ];
 
   const [activeTab, setActiveTab] = useState<'technical' | 'non-technical'>('technical');
-
-  const projects = activeTab === 'technical' ? technicalProjects : nonTechnicalProjects;
-
   const nonTechnicalProjects = [
     {
       title: 'Qwipo — International SaaS Strategy & Market Expansion',
@@ -142,6 +139,8 @@ const Projects = () => {
       links: { github: undefined as string | undefined, demo: undefined as string | undefined }
     }
   ];
+
+  const projects = activeTab === 'technical' ? technicalProjects : nonTechnicalProjects;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -258,47 +257,7 @@ const Projects = () => {
             </div>
           </motion.div>
           
-          {/* Non-Technical projects */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-16"
-          >
-            <p className="text-muted-foreground text-sm mb-8 tracking-wide uppercase">Non-Technical</p>
-            <div className="space-y-12">
-              {nonTechnicalProjects.map((project, index) => (
-                <motion.article
-                  key={project.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.08 }}
-                  className="pb-12 border-b border-border last:border-0"
-                >
-                  <div className="flex justify-between items-start gap-4 mb-4">
-                    <h3 className="text-2xl md:text-3xl font-light">{project.title}</h3>
-                    <span className="text-sm text-muted-foreground whitespace-nowrap">{project.year}</span>
-                  </div>
-
-                  <p className="text-muted-foreground font-light mb-4 leading-relaxed">{project.description}</p>
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech: string) => (
-                      <span key={tech} className="px-3 py-1 text-sm border border-border text-muted-foreground">{tech}</span>
-                    ))}
-                  </div>
-
-                  {(project as any).highlights && (
-                    <ul className="list-disc ml-6 mb-4 text-muted-foreground space-y-1">
-                      {(project as any).highlights.map((h: string) => (
-                        <li key={h} className="text-sm leading-snug">{h}</li>
-                      ))}
-                    </ul>
-                  )}
-                </motion.article>
-              ))}
-            </div>
-          </motion.div>
+          {/* Non-Technical projects are shown via the tab above. */}
         </div>
       </main>
     </div>
