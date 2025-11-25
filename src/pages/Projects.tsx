@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import { ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -73,7 +74,9 @@ const Projects = () => {
     }
   ];
 
-  const projects = technicalProjects;
+  const [activeTab, setActiveTab] = useState<'technical' | 'non-technical'>('technical');
+
+  const projects = activeTab === 'technical' ? technicalProjects : nonTechnicalProjects;
 
   const nonTechnicalProjects = [
     {
@@ -160,82 +163,100 @@ const Projects = () => {
             </h1>
           </motion.div>
 
-          {/* Technical projects list */}
-
-          <div className="space-y-12">
-            {projects.map((project, index) => (
-              <motion.article
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="pb-12 border-b border-border last:border-0"
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-col gap-8 mb-16"
+          >
+            <div className="flex gap-8 border-b border-border">
+              <button
+                onClick={() => setActiveTab('technical')}
+                className={`pb-4 text-lg font-light transition-colors relative ${
+                  activeTab === 'technical' ? 'text-foreground' : 'text-muted-foreground'
+                }`}
               >
-                <div className="flex justify-between items-start gap-4 mb-4">
-                  <h2 className="text-2xl md:text-3xl font-light">{project.title}</h2>
-                  <span className="text-sm text-muted-foreground whitespace-nowrap">
-                    {project.year}
-                  </span>
-                </div>
-                
-                <p className="text-muted-foreground font-light mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-sm border border-border text-muted-foreground"
-                    >
-                      {tech}
+                Technical
+                {activeTab === 'technical' && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute bottom-0 left-0 right-0 h-px bg-foreground"
+                  />
+                )}
+              </button>
+
+              <button
+                onClick={() => setActiveTab('non-technical')}
+                className={`pb-4 text-lg font-light transition-colors relative ${
+                  activeTab === 'non-technical' ? 'text-foreground' : 'text-muted-foreground'
+                }`}
+              >
+                Non-Technical
+                {activeTab === 'non-technical' && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute bottom-0 left-0 right-0 h-px bg-foreground"
+                  />
+                )}
+              </button>
+            </div>
+
+            <div className="space-y-12">
+              {projects.map((project, index) => (
+                <motion.article
+                  key={project.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="pb-12 border-b border-border last:border-0"
+                >
+                  <div className="flex justify-between items-start gap-4 mb-4">
+                    <h2 className="text-2xl md:text-3xl font-light">{project.title}</h2>
+                    <span className="text-sm text-muted-foreground whitespace-nowrap">
+                      {project.year}
                     </span>
-                  ))}
-                </div>
-
-                {(project as any).highlights && (
-                  <ul className="list-disc ml-6 mb-4 text-muted-foreground space-y-1">
-                    {(project as any).highlights.map((h: string) => (
-                      <li key={h} className="text-sm leading-snug">
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-                {(project.links.github || project.links.demo) && (
-                  <div className="flex gap-4">
-                    {project.links.github && (
-                      <a
-                        href={project.links.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block"
-                      >
-                        <Button variant="ghost" size="sm" className="px-0 hover:bg-transparent">
-                          <Github className="w-4 h-4 mr-2" />
-                          View Code
-                        </Button>
-                      </a>
-                    )}
-                    {project.links.demo && (
-                      <a
-                        href={project.links.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block"
-                      >
-                        <Button variant="ghost" size="sm" className="px-0 hover:bg-transparent">
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          Live Demo
-                        </Button>
-                      </a>
-                    )}
                   </div>
-                )}
-              </motion.article>
-            ))}
-          </div>
+
+                  <p className="text-muted-foreground font-light mb-4 leading-relaxed">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech: string) => (
+                      <span key={tech} className="px-3 py-1 text-sm border border-border text-muted-foreground">{tech}</span>
+                    ))}
+                  </div>
+
+                  {(project as any).highlights && (
+                    <ul className="list-disc ml-6 mb-4 text-muted-foreground space-y-1">
+                      {(project as any).highlights.map((h: string) => (
+                        <li key={h} className="text-sm leading-snug">{h}</li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {(project.links && (project.links.github || project.links.demo)) && (
+                    <div className="flex gap-4">
+                      {project.links.github && (
+                        <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="inline-block">
+                          <Button variant="ghost" size="sm" className="px-0 hover:bg-transparent">
+                            <Github className="w-4 h-4 mr-2" />
+                            View Code
+                          </Button>
+                        </a>
+                      )}
+                      {project.links.demo && (
+                        <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="inline-block">
+                          <Button variant="ghost" size="sm" className="px-0 hover:bg-transparent">
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Live Demo
+                          </Button>
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </motion.article>
+              ))}
+            </div>
+          </motion.div>
           
           {/* Non-Technical projects */}
           <motion.div
